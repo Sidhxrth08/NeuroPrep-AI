@@ -1,0 +1,1987 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroPrep AI | Competition-Grade Board Exam Preparation Platform</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Ambient Background Light Effects -->
+    <div class="ambient-glow glow-top-left"></div>
+    <div class="ambient-glow glow-bottom-right"></div>
+    <div class="ambient-grid"></div>
+
+    <div class="app-container">
+        <!-- Top Navigation Header -->
+                <!-- Top Navigation Header with Responsive Space Distribution -->
+        <header class="app-nav-header glass-panel">
+            <!-- LEFT: Brand, Academic Target, Subtle Divider -->
+            <div class="nav-left-section">
+                <div class="nav-brand" role="button" tabindex="0" id="brandLogoHome" title="Go to Dashboard">
+                    <div class="brand-mini-icon">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <div class="brand-text-group">
+                        <span class="brand-name">NeuroPrep <span class="highlight">AI</span></span>
+                        <span class="brand-tagline">YOUR PERSONAL AI BOARD<br>EXAM COACH</span>
+                    </div>
+                </div>
+
+                <!-- Academic Target Quick Selector -->
+                <button type="button" class="nav-academic-chip" id="navAcademicChip" title="Change Class, Board, or Stream">
+                    <i class="fa-solid fa-school chip-school-icon"></i>
+                    <span id="navAcademicChipText">Class 12 • CBSE • Science</span>
+                    <i class="fa-solid fa-chevron-down chip-dropdown-icon"></i>
+                </button>
+
+                <!-- Subtle Vertical Divider -->
+                <div class="nav-header-divider" aria-hidden="true"></div>
+            </div>
+
+            <!-- CENTER: Navigation Tabs Container -->
+            <nav class="nav-tabs-wrapper" id="desktopNavTabs" aria-label="Main Navigation">
+                <button type="button" class="nav-tab active" data-view="dashboard" id="tabDashboard" title="Dashboard">
+                    <i class="fa-solid fa-chart-pie"></i>
+                    <span>Dashboard</span>
+                </button>
+                <button type="button" class="nav-tab" data-view="setup" id="tabSetup" title="Create Quiz">
+                    <i class="fa-solid fa-sliders"></i>
+                    <span>Create Quiz</span>
+                </button>
+                <button type="button" class="nav-tab" data-view="doubtSolver" id="tabDoubtSolver" title="AI Doubt Solver">
+                    <i class="fa-solid fa-brain"></i>
+                    <span>Doubt Solver</span>
+                </button>
+                <button type="button" class="nav-tab" data-view="mockTest" id="tabMockTest" title="Full Board Mock">
+                    <i class="fa-solid fa-award"></i>
+                    <span>Full Mock</span>
+                </button>
+                <button type="button" class="nav-tab" data-view="mistakes" id="tabMistakes" title="Mistake Vault">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    <span>Mistakes</span>
+                    <span class="badge-pill danger" id="navMistakesCount">0</span>
+                </button>
+
+                <!-- Secondary Tabs: Displayed inline on large desktop, collapse into dropdown on laptops -->
+                <button type="button" class="nav-tab secondary-tab" data-view="studyPlan" id="tabStudyPlan" title="7-Day Study Plan">
+                    <i class="fa-solid fa-calendar-check"></i>
+                    <span>7-Day Plan</span>
+                </button>
+                <button type="button" class="nav-tab secondary-tab" data-view="bookmarks" id="tabBookmarks" title="Bookmarks Library">
+                    <i class="fa-solid fa-bookmark"></i>
+                    <span>Bookmarks</span>
+                    <span class="badge-pill" id="navBookmarkCount">0</span>
+                </button>
+                <button type="button" class="nav-tab secondary-tab" data-view="analytics" id="tabAnalytics" title="Performance Analytics">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>Analytics</span>
+                </button>
+                <button type="button" class="nav-tab secondary-tab" data-view="history" id="tabHistory" title="Session History">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    <span>History</span>
+                </button>
+
+                <!-- Responsive More Tools Dropdown -->
+                <div class="nav-more-dropdown" id="navMoreDropdownContainer">
+                    <button type="button" class="nav-tab nav-more-btn" id="btnNavMore" aria-expanded="false" title="More Study Tools">
+                        <i class="fa-solid fa-ellipsis"></i>
+                        <span>More</span>
+                        <i class="fa-solid fa-chevron-down more-caret"></i>
+                    </button>
+                    <div class="nav-more-menu glass-panel" id="navMoreMenu">
+                        <button type="button" class="nav-dropdown-item" data-view="studyPlan" id="dropTabStudyPlan">
+                            <i class="fa-solid fa-calendar-check text-purple"></i>
+                            <span>7-Day Plan</span>
+                        </button>
+                        <button type="button" class="nav-dropdown-item" data-view="bookmarks" id="dropTabBookmarks">
+                            <i class="fa-solid fa-bookmark text-pink"></i>
+                            <span>Bookmarks</span>
+                            <span class="badge-pill" id="dropNavBookmarkCount">0</span>
+                        </button>
+                        <button type="button" class="nav-dropdown-item" data-view="analytics" id="dropTabAnalytics">
+                            <i class="fa-solid fa-chart-line text-cyan"></i>
+                            <span>Analytics</span>
+                        </button>
+                        <button type="button" class="nav-dropdown-item" data-view="history" id="dropTabHistory">
+                            <i class="fa-solid fa-clock-rotate-left text-amber"></i>
+                            <span>History</span>
+                        </button>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- RIGHT: Actions Section (Set Gemini Key + Mobile Toggle) -->
+            <div class="nav-actions-section">
+                <button type="button" id="apiKeyTriggerBtn" class="api-key-btn" title="Configure Gemini AI Key">
+                    <i class="fa-solid fa-key"></i>
+                    <span id="apiKeyBtnText">Set Gemini Key</span>
+                    <span class="key-status-dot" id="keyStatusDot"></span>
+                </button>
+
+                <!-- Mobile Navigation Toggle Button -->
+                <button type="button" id="mobileNavToggle" class="mobile-nav-toggle-btn" aria-label="Toggle navigation menu" title="Open Navigation Menu">
+                    <i class="fa-solid fa-bars" id="mobileNavIcon"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Mobile Navigation Drawer & Backdrop (<= 1024px) -->
+        <div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
+        <aside class="mobile-nav-drawer glass-panel" id="mobileNavDrawer" aria-label="Mobile Navigation Menu">
+            <div class="mobile-drawer-header">
+                <div class="nav-brand">
+                    <div class="brand-mini-icon">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <div class="brand-text-group">
+                        <span class="brand-name">NeuroPrep <span class="highlight">AI</span></span>
+                        <span class="brand-tagline">Board Exam Coach</span>
+                    </div>
+                </div>
+                <button type="button" class="btn-close-drawer" id="btnCloseMobileDrawer" aria-label="Close navigation menu">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Academic Target Summary in Mobile Drawer -->
+            <div class="mobile-drawer-profile">
+                <span class="drawer-profile-label">Current Academic Target</span>
+                <button type="button" class="drawer-profile-badge" id="btnDrawerChangeProfile" title="Change Academic Target">
+                    <i class="fa-solid fa-school"></i>
+                    <span id="mobileAcademicText">Class 12 • CBSE • Science</span>
+                    <i class="fa-solid fa-pen-to-square"></i>
+                </button>
+            </div>
+
+            <!-- Navigation Links in Drawer -->
+            <div class="mobile-drawer-links">
+                <button type="button" class="drawer-nav-item active" data-view="dashboard">
+                    <i class="fa-solid fa-chart-pie"></i>
+                    <span>Dashboard</span>
+                </button>
+                <button type="button" class="drawer-nav-item" data-view="setup">
+                    <i class="fa-solid fa-sliders"></i>
+                    <span>Create Quiz</span>
+                </button>
+                <button type="button" class="drawer-nav-item" data-view="doubtSolver">
+                    <i class="fa-solid fa-brain"></i>
+                    <span>AI Doubt Solver</span>
+                </button>
+                <button type="button" class="drawer-nav-item" data-view="mockTest">
+                    <i class="fa-solid fa-award"></i>
+                    <span>Full Board Mock</span>
+                </button>
+                <button type="button" class="drawer-nav-item" data-view="mistakes">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    <span>Mistake Master Vault</span>
+                    <span class="badge-pill danger" id="drawerMistakesCount">0</span>
+                </button>
+                <button type="button" class="drawer-nav-item" data-view="studyPlan">
+                    <i class="fa-solid fa-calendar-check"></i>
+                    <span>7-Day AI Study Plan</span>
+                </button>
+                <button type="button" class="drawer-nav-item" data-view="bookmarks">
+                    <i class="fa-solid fa-bookmark"></i>
+                    <span>Saved Bookmarks</span>
+                    <span class="badge-pill" id="drawerBookmarkCount">0</span>
+                </button>
+                <button type="button" class="drawer-nav-item" data-view="analytics">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>Performance Analytics</span>
+                </button>
+                <button type="button" class="drawer-nav-item" data-view="history">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    <span>Session History</span>
+                </button>
+            </div>
+
+            <div class="mobile-drawer-footer">
+                <button type="button" class="btn-dash-primary full-width" id="btnDrawerApiKey">
+                    <i class="fa-solid fa-key"></i> Gemini API Key Settings
+                </button>
+            </div>
+        </aside>
+
+        <!-- ==========================================
+             VIEW 1: STUDENT DASHBOARD
+             ========================================== -->
+        <!-- ==========================================
+             VIEW 1: STUDENT DASHBOARD
+             ========================================== -->
+        <section id="dashboardView" class="view-section active">
+            <!-- 1. Welcome Hero Banner with Dynamic Greeting -->
+            <div class="dashboard-banner glass-panel">
+                <div class="dash-banner-content">
+                    <div class="streak-badge" id="studyStreakBadge">
+                        <i class="fa-solid fa-fire-flame-curved"></i>
+                        <span id="streakCountText">1-Day Study Streak!</span>
+                    </div>
+                    <h1 class="dash-title"><span id="dashGreetingText">Good evening</span>, <span class="gradient-text">Board Scholar</span> 👋</h1>
+                    <p class="dash-subtitle">NeuroPrep AI — Your Personal AI Board Exam Coach. Assess mastery, identify conceptual weaknesses, and practice targeted high-yield questions for CBSE & State Boards.</p>
+                    <div class="dash-academic-context-bar" id="dashAcademicContextBar">
+                        <span class="context-label"><i class="fa-solid fa-graduation-cap"></i> Target Curriculum:</span>
+                        <span class="context-val" id="dashContextVal">Class 12 • CBSE • Science</span>
+                        <button type="button" class="btn-context-switch" id="btnSwitchContextDash" title="Switch Class, Board, or Stream">
+                            <i class="fa-solid fa-pen-to-square"></i> Change Target
+                        </button>
+                    </div>
+                </div>
+                <div class="dash-banner-actions">
+                    <button type="button" class="btn-dash-primary" id="dashStartQuizBtn">
+                        <i class="fa-solid fa-plus"></i> New Custom Quiz
+                    </button>
+                    <button type="button" class="btn-dash-primary btn-weak-glow" id="dashWeakQuizBtn">
+                        <i class="fa-solid fa-bullseye"></i> Quiz From Weak Areas
+                    </button>
+                    <button type="button" class="btn-dash-mock" id="dashStartMockBtn">
+                        <i class="fa-solid fa-award"></i> Full Board Mock
+                    </button>
+                    <button type="button" class="btn-dash-mistakes" id="dashPracticeMistakesBtn">
+                        <i class="fa-solid fa-repeat"></i> Practice Mistakes
+                        <span class="mistakes-counter" id="dashMistakesBadge">0</span>
+                    </button>
+                    <button type="button" class="btn-action-outline" id="dashOpenDoubtSolverBtn">
+                        <i class="fa-solid fa-brain"></i> AI Doubt Solver
+                    </button>
+                </div>
+            </div>
+
+            <!-- 2. Gamification & XP Mastery Shelf -->
+            <div class="dash-gamification-bar glass-panel">
+                <div class="gamify-level-info">
+                    <div class="level-badge" id="dashLevelBadge">
+                        <i class="fa-solid fa-medal"></i> Level 1
+                    </div>
+                    <div class="level-meta">
+                        <span class="level-title" id="dashLevelTitle">Novice Scholar</span>
+                        <span class="xp-count" id="dashXpText">0 / 200 XP</span>
+                    </div>
+                </div>
+                <div class="gamify-xp-progress">
+                    <div class="xp-bar-bg">
+                        <div class="xp-bar-fill" id="dashXpBar" style="width: 0%;"></div>
+                    </div>
+                </div>
+                <div class="gamify-badges-shelf" id="dashBadgesRow">
+                    <!-- Badges rendered by JS -->
+                </div>
+            </div>
+
+            <!-- ==========================================
+                 3. AI EXAM READINESS HERO SCORE & BREAKDOWN ⭐⭐⭐
+                 ========================================== -->
+            <div class="dash-readiness-hero glass-panel" id="dashReadinessHeroCard">
+                <!-- State A: Insufficient Data / First-Time User State -->
+                <div class="readiness-empty-state" id="readinessEmptyState" style="display: none;">
+                    <div class="readiness-empty-icon">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </div>
+                    <div class="readiness-empty-content">
+                        <div class="readiness-header-tag">
+                            <span class="badge diff-badge medium"><i class="fa-solid fa-chart-line"></i> AI Diagnostic Engine</span>
+                        </div>
+                        <h2 class="readiness-empty-title">🎯 AI Exam Readiness: <span class="text-muted">Not enough data yet</span></h2>
+                        <p class="readiness-empty-desc">Complete your first few quizzes to unlock your personalized AI Exam Readiness score, real-time board grade projections, and deep multi-factor breakdown.</p>
+                        <div class="readiness-empty-actions">
+                            <button type="button" class="btn-dash-primary" id="btnStartFirstQuizFromReadiness">
+                                <i class="fa-solid fa-play"></i> Start Your First Quiz
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- State B: Active Student Data State -->
+                <div class="readiness-active-state" id="readinessActiveState">
+                    <div class="readiness-top-row">
+                        <div class="readiness-lead-col">
+                            <div class="readiness-title-badge">
+                                <span class="readiness-tag"><i class="fa-solid fa-bullseye"></i> 🎯 AI EXAM READINESS</span>
+                                <span class="readiness-level-pill level-strong" id="dashReadinessLevelBadge">
+                                    <span class="status-dot"></span>
+                                    <span id="dashReadinessLevelText">🔵 Strong</span>
+                                </span>
+                            </div>
+                            
+                            <div class="readiness-score-display">
+                                <div class="readiness-main-num" id="dashReadinessMainScore">0%</div>
+                                <div class="readiness-score-meta">
+                                    <div class="readiness-delta-badge" id="dashReadinessDeltaBadge" style="display: none;">
+                                        <i class="fa-solid fa-arrow-trend-up"></i>
+                                        <span id="dashReadinessDeltaText">+0% improvement</span>
+                                    </div>
+                                    <div class="readiness-delta-reason" id="dashReadinessDeltaReason">
+                                        <!-- Dynamically generated comparison -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <p class="readiness-personalized-msg" id="dashReadinessPersonalizedMsg">
+                                Complete your diagnostic quiz to unlock root-cause analysis and exam predictions.
+                            </p>
+                        </div>
+
+                        <!-- Radial SVG Readiness Gauge -->
+                        <div class="readiness-gauge-col">
+                            <div class="radial-gauge-wrapper">
+                                <svg class="radial-gauge-svg" viewBox="0 0 120 120">
+                                    <circle class="gauge-bg" cx="60" cy="60" r="50"></circle>
+                                    <circle class="gauge-fill" id="dashReadinessGaugeCircle" cx="60" cy="60" r="50" style="stroke-dashoffset: 314;"></circle>
+                                </svg>
+                                <div class="gauge-center-content">
+                                    <i class="fa-solid fa-graduation-cap"></i>
+                                    <span class="gauge-sub" id="dashGaugeSubText">Board Prep</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Readiness Breakdown (5 Factors) -->
+                    <div class="readiness-breakdown-section">
+                        <div class="breakdown-header">
+                            <span class="breakdown-title"><i class="fa-solid fa-sliders"></i> Readiness Breakdown</span>
+                            <span class="breakdown-subtitle" id="dashBreakdownSubtitle">Calculated from 5 weighted board readiness parameters</span>
+                        </div>
+                        
+                        <div class="readiness-breakdown-grid">
+                            <!-- 1. Knowledge (25%) -->
+                            <div class="breakdown-factor-card">
+                                <div class="factor-header">
+                                    <span class="factor-label"><i class="fa-solid fa-book-open"></i> Knowledge</span>
+                                    <span class="factor-pct" id="factorKnowledgePct">0%</span>
+                                </div>
+                                <div class="factor-bar-bg">
+                                    <div class="factor-bar-fill emerald" id="factorKnowledgeBar" style="width: 0%;"></div>
+                                </div>
+                                <span class="factor-hint">Syllabus breadth & subject mastery</span>
+                            </div>
+
+                            <!-- 2. Accuracy (25%) -->
+                            <div class="breakdown-factor-card">
+                                <div class="factor-header">
+                                    <span class="factor-label"><i class="fa-solid fa-circle-check"></i> Accuracy</span>
+                                    <span class="factor-pct" id="factorAccuracyPct">0%</span>
+                                </div>
+                                <div class="factor-bar-bg">
+                                    <div class="factor-bar-fill cyan" id="factorAccuracyBar" style="width: 0%;"></div>
+                                </div>
+                                <span class="factor-hint">Overall question accuracy rate</span>
+                            </div>
+
+                            <!-- 3. Weak Topics (20%) -->
+                            <div class="breakdown-factor-card">
+                                <div class="factor-header">
+                                    <span class="factor-label"><i class="fa-solid fa-microscope"></i> Weak Topics</span>
+                                    <span class="factor-pct" id="factorWeakTopicsPct">0%</span>
+                                </div>
+                                <div class="factor-bar-bg">
+                                    <div class="factor-bar-fill amber" id="factorWeakTopicsBar" style="width: 0%;"></div>
+                                </div>
+                                <span class="factor-hint">Mistake resolution & topic mastery</span>
+                            </div>
+
+                            <!-- 4. Mock Tests (15%) -->
+                            <div class="breakdown-factor-card">
+                                <div class="factor-header">
+                                    <span class="factor-label"><i class="fa-solid fa-award"></i> Mock Tests</span>
+                                    <span class="factor-pct" id="factorMockTestsPct">0%</span>
+                                </div>
+                                <div class="factor-bar-bg">
+                                    <div class="factor-bar-fill purple" id="factorMockTestsBar" style="width: 0%;"></div>
+                                </div>
+                                <span class="factor-hint">Simulated full exam performance</span>
+                            </div>
+
+                            <!-- 5. Consistency (15%) -->
+                            <div class="breakdown-factor-card">
+                                <div class="factor-header">
+                                    <span class="factor-label"><i class="fa-solid fa-fire-flame-curved"></i> Consistency</span>
+                                    <span class="factor-pct" id="factorConsistencyPct">0%</span>
+                                </div>
+                                <div class="factor-bar-bg">
+                                    <div class="factor-bar-fill pink" id="factorConsistencyBar" style="width: 0%;"></div>
+                                </div>
+                                <span class="factor-hint">Active streak & study continuity</span>
+                            </div>
+                        </div>
+
+                        <div class="breakdown-note-box" id="dashBreakdownNoteBox" style="display: none;">
+                            <i class="fa-solid fa-circle-info"></i>
+                            <span id="dashBreakdownNoteText">Complete more quizzes to improve the accuracy of your readiness score.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ==========================================
+                 4. YOUR NEXT BEST ACTION ⭐⭐⭐
+                 ========================================== -->
+            <div class="dash-next-best-action-card glass-panel" id="dashNextBestActionHero">
+                <div class="next-action-hero-header">
+                    <div class="action-tag">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        <span>YOUR NEXT BEST ACTION</span>
+                    </div>
+                    <span class="action-source-badge" id="dashActionSourceBadge">AI Personalized Coach</span>
+                </div>
+                
+                <div class="next-action-hero-body">
+                    <div class="action-hero-avatar">
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
+                    <div class="action-hero-content">
+                        <h3 class="action-hero-title" id="dashNextActionTitleHero">Take Baseline Diagnostic Quiz</h3>
+                        <p class="action-hero-desc" id="dashNextActionDescHero">Start your first quiz to unlock personalized recommendations.</p>
+                    </div>
+                    <div class="action-hero-cta">
+                        <button type="button" class="btn-dash-primary btn-weak-glow" id="btnHeroLaunchWeakQuiz">
+                            <i class="fa-solid fa-bolt"></i> <span id="btnHeroActionLabel">Generate Weak-Area Quiz</span>
+                        </button>
+                        <button type="button" class="btn-action-outline" id="btnHeroContinuePlan">
+                            <i class="fa-solid fa-calendar-check"></i> Study Plan Focus
+                        </button>
+                    </div>
+                </div>
+
+                <div class="recommendations-box" id="dashRecommendationsList" style="margin-top: 1rem;">
+                    <!-- Additional diagnostic actions populated dynamically -->
+                </div>
+            </div>
+
+            <!-- Legacy fallback for onboarding if needed -->
+            <div class="dash-onboarding-card glass-panel" id="dashEmptyStateOnboarding" style="display:none;">
+                <div class="onboard-icon"><i class="fa-solid fa-compass-drafting"></i></div>
+                <div class="onboard-text">
+                    <h3>Welcome to Your AI Board Exam Coaching Cockpit</h3>
+                    <p>Complete your first diagnostic test to unlock personal preparation scores, weakness diagnosis, and adaptive study plans.</p>
+                </div>
+                <button type="button" class="btn-dash-primary btn-sm" id="btnOnboardStartQuiz">
+                    <i class="fa-solid fa-play"></i> Start Diagnostic Quiz
+                </button>
+            </div>
+
+            <!-- ==========================================
+                 5. OVERALL PERFORMANCE (QUICK STATS + SUBJECT PATHS)
+                 ========================================== -->
+            <div class="dash-stats-grid">
+                <div class="dash-stat-card glass-panel">
+                    <div class="stat-header">
+                        <span class="stat-label">Total Quizzes</span>
+                        <div class="stat-icon-badge purple"><i class="fa-solid fa-file-signature"></i></div>
+                    </div>
+                    <div class="stat-number" id="dashStatTotalQuizzes">0</div>
+                    <div class="stat-sub">Completed practice sessions</div>
+                </div>
+
+                <div class="dash-stat-card glass-panel">
+                    <div class="stat-header">
+                        <span class="stat-label">Questions Attempted</span>
+                        <div class="stat-icon-badge cyan"><i class="fa-solid fa-list-check"></i></div>
+                    </div>
+                    <div class="stat-number" id="dashStatTotalQuestions">0</div>
+                    <div class="stat-sub" id="dashStatAccuracySub">Overall accuracy: 0%</div>
+                </div>
+
+                <div class="dash-stat-card glass-panel">
+                    <div class="stat-header">
+                        <span class="stat-label">Average Score</span>
+                        <div class="stat-icon-badge emerald"><i class="fa-solid fa-gauge-high"></i></div>
+                    </div>
+                    <div class="stat-number" id="dashStatAvgScore">0%</div>
+                    <div class="stat-sub" id="dashStatBestScore">Best score: 0%</div>
+                </div>
+
+                <div class="dash-stat-card glass-panel">
+                    <div class="stat-header">
+                        <span class="stat-label">Mistake Master Vault</span>
+                        <div class="stat-icon-badge amber"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                    </div>
+                    <div class="stat-number" id="dashStatMistakes">0</div>
+                    <div class="stat-sub" id="dashStatMasteredSub">0 concepts mastered</div>
+                </div>
+
+                <div class="dash-stat-card glass-panel">
+                    <div class="stat-header">
+                        <span class="stat-label">Saved Bookmarks</span>
+                        <div class="stat-icon-badge pink"><i class="fa-solid fa-bookmark"></i></div>
+                    </div>
+                    <div class="stat-number" id="dashStatBookmarks">0</div>
+                    <div class="stat-sub">High-yield revision library</div>
+                </div>
+            </div>
+
+            <!-- Personal Learning Path & Subject Readiness Cards -->
+            <div class="dash-learning-path-card glass-panel">
+                <div class="learning-path-header">
+                    <div>
+                        <div class="brand-badge emerald">
+                            <i class="fa-solid fa-route"></i>
+                            <span>Subject Readiness Path</span>
+                        </div>
+                        <h3 class="dash-card-title">Subject Mastery & Syllabus Progress</h3>
+                    </div>
+                    <div class="prep-overall-badge">
+                        <span class="prep-score-number" id="dashPrepScore">0%</span>
+                        <span class="prep-score-status" id="dashPrepReadinessLabel">Diagnostic Needed</span>
+                    </div>
+                </div>
+                
+                <div class="learning-path-subjects-grid">
+                    <!-- Physics Path -->
+                    <div class="path-subject-card">
+                        <div class="path-sub-header">
+                            <span class="path-sub-name physics"><i class="fa-solid fa-atom"></i> Physics</span>
+                            <span class="badge diff-badge medium" id="dashPhysicsStatusBadge">Pending</span>
+                        </div>
+                        <div class="path-sub-score" id="dashPhysicsScore">0% (0 MCQs)</div>
+                        <div class="progress-bar-bg">
+                            <div class="progress-bar-fill physics" id="dashPhysicsBar" style="width: 0%;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Chemistry Path -->
+                    <div class="path-subject-card">
+                        <div class="path-sub-header">
+                            <span class="path-sub-name chemistry"><i class="fa-solid fa-flask-vial"></i> Chemistry</span>
+                            <span class="badge diff-badge medium" id="dashChemistryStatusBadge">Pending</span>
+                        </div>
+                        <div class="path-sub-score" id="dashChemistryScore">0% (0 MCQs)</div>
+                        <div class="progress-bar-bg">
+                            <div class="progress-bar-fill chemistry" id="dashChemistryBar" style="width: 0%;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Mathematics Path -->
+                    <div class="path-subject-card">
+                        <div class="path-sub-header">
+                            <span class="path-sub-name mathematics"><i class="fa-solid fa-square-root-variable"></i> Mathematics</span>
+                            <span class="badge diff-badge medium" id="dashMathStatusBadge">Pending</span>
+                        </div>
+                        <div class="path-sub-score" id="dashMathScore">0% (0 MCQs)</div>
+                        <div class="progress-bar-bg">
+                            <div class="progress-bar-fill mathematics" id="dashMathBar" style="width: 0%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ==========================================
+                 6. WEAK AREAS (AI WEAKNESS DETECTION ENGINE)
+                 ========================================== -->
+            <div class="dash-card glass-panel dash-weakness-fullwidth">
+                <div class="dash-card-header">
+                    <h3 class="dash-card-title"><i class="fa-solid fa-microscope"></i> AI Weakness Detection Engine</h3>
+                    <span class="card-caption">Root Cause Analysis</span>
+                </div>
+                <div class="weakness-detection-body" id="dashWeaknessDetectionBox">
+                    <div class="weakness-lead-item">
+                        <div class="weakness-lead-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                        <div class="weakness-lead-info">
+                            <h4 class="weakness-lead-title" id="dashWeakestTopicTitle">Diagnostic Assessment Pending</h4>
+                            <p class="weakness-lead-desc" id="dashWeakestTopicDesc">Complete your first quiz. The AI engine will detect your lowest-accuracy chapters and diagnose whether mistakes stem from formulas, concepts, or calculation traps.</p>
+                        </div>
+                    </div>
+
+                    <div class="weakness-sub-sections">
+                        <div class="weak-sub-block">
+                            <span class="weak-sub-heading"><i class="fa-solid fa-clock-rotate-left"></i> Topics Needing Revision:</span>
+                            <div class="weak-pills-container" id="dashRevisionTopicsList">
+                                <span class="topic-pill neutral">No revision backlog yet</span>
+                            </div>
+                        </div>
+                        <div class="weak-sub-block">
+                            <span class="weak-sub-heading"><i class="fa-solid fa-repeat"></i> Repeated Mistakes:</span>
+                            <p class="repeated-mistakes-text" id="dashRepeatedMistakesSummary">0 recurrent errors tracked in your Mistake Vault.</p>
+                        </div>
+                    </div>
+
+                    <div class="weakness-actions-row" style="margin-top: 1rem; display: flex; gap: 0.75rem;">
+                        <button type="button" class="btn-dash-primary btn-sm" id="btnLaunchWeakAreasQuiz">
+                            <i class="fa-solid fa-bullseye"></i> Generate Quiz From My Weak Areas
+                        </button>
+                        <button type="button" class="btn-action-outline btn-sm" id="dashContinuePlanBtn">
+                            <i class="fa-solid fa-calendar-check"></i> Continue 7-Day AI Study Plan
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ==========================================
+                 7. RECENT ACTIVITY
+                 ========================================== -->
+            <div class="dash-recent-section glass-panel">
+                <div class="dash-card-header">
+                    <h3 class="dash-card-title"><i class="fa-solid fa-clock-rotate-left"></i> Recent Quiz Activity</h3>
+                    <button type="button" class="btn-text-link" id="dashViewAllHistoryBtn">View Complete History &rarr;</button>
+                </div>
+                <div class="recent-quizzes-table-wrapper" id="dashRecentQuizzesContainer">
+                    <!-- Populated dynamically -->
+                </div>
+            </div>
+
+            <!-- ==========================================
+                 8. QUICK STUDY SHORTCUTS
+                 ========================================== -->
+            <div class="dash-shortcuts-bar glass-panel">
+                <div class="shortcut-item" id="shortcutStudyPlan" role="button" tabindex="0">
+                    <i class="fa-solid fa-calendar-check text-purple"></i>
+                    <div>
+                        <span class="shortcut-title">7-Day Study Plan</span>
+                        <span class="shortcut-sub">Personalized revision schedule</span>
+                    </div>
+                </div>
+                <div class="shortcut-item" id="shortcutMistakes" role="button" tabindex="0">
+                    <i class="fa-solid fa-repeat text-amber"></i>
+                    <div>
+                        <span class="shortcut-title">Mistake Master</span>
+                        <span class="shortcut-sub">Re-attempt missed questions</span>
+                    </div>
+                </div>
+                <div class="shortcut-item" id="shortcutBookmarks" role="button" tabindex="0">
+                    <i class="fa-solid fa-bookmark text-pink"></i>
+                    <div>
+                        <span class="shortcut-title">Saved Bookmarks</span>
+                        <span class="shortcut-sub">Review starred problems</span>
+                    </div>
+                </div>
+                <div class="shortcut-item" id="shortcutMockTest" role="button" tabindex="0">
+                    <i class="fa-solid fa-award text-cyan"></i>
+                    <div>
+                        <span class="shortcut-title">Full Board Mock</span>
+                        <span class="shortcut-sub">Timed exam simulation</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ==========================================
+                 9. CREATOR / ABOUT SECTION
+                 ========================================== -->
+            <div class="dash-creator-card glass-panel">
+                <div class="creator-badge-row">
+                    <span class="creator-kicker"><i class="fa-solid fa-code"></i> Created by</span>
+                    <span class="creator-tech-pill">AI • Web Development • Education</span>
+                </div>
+                <div class="creator-body-row">
+                    <div class="creator-avatar">
+                        <i class="fa-solid fa-user-astronaut"></i>
+                    </div>
+                    <div class="creator-info-col">
+                        <h4 class="creator-name">Sidharth</h4>
+                        <span class="creator-role">Developer & Creator of NeuroPrep AI</span>
+                        <p class="creator-desc">Building AI-powered learning tools that make exam preparation smarter, more personalized, and more effective.</p>
+                    </div>
+                    <div class="creator-action-col">
+                        <a href="https://github.com/Sidhxrth08" target="_blank" rel="noopener noreferrer" class="btn-github-creator" title="View Sidharth's GitHub Profile">
+                            <i class="fa-brands fa-github"></i>
+                            <span>View GitHub</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square external-icon"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Small Dashboard Signature -->
+            <div class="dash-signature-line">
+                <span>Designed & Built by Sidharth • NeuroPrep AI</span>
+            </div>
+        </section>
+
+        <section id="setupView" class="view-section">
+            <header class="app-header">
+                <div class="brand-badge">
+                    <span class="sparkle-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></span>
+                    <span class="badge-text">CBSE & State Board Prep Engine</span>
+                </div>
+                <h1 class="main-title">Configure Your <span class="gradient-text">Board Exam Quiz</span></h1>
+                <p class="subtitle">Customize syllabus parameters, choose your challenge level, and synthesize targeted high-yield questions in seconds.</p>
+            </header>
+
+            <main class="quiz-setup-grid">
+                <!-- Left Panel: Form -->
+                <section class="config-card glass-panel">
+                    <div class="card-header">
+                        <div class="step-indicator">
+                            <span class="step-num">01</span>
+                            <div>
+                                <h2>Quiz Parameters</h2>
+                                <p>Select subject, chapter, and test criteria</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form id="quizSetupForm" class="setup-form" onsubmit="return false;">
+                        <!-- 0. Academic Level, Board & Stream Parameters -->
+                        <div class="form-group academic-setup-group">
+                            <div class="academic-config-bar glass-panel">
+                                <div class="acad-field-col">
+                                    <span class="field-label"><i class="fa-solid fa-layer-group"></i> Class</span>
+                                    <div class="acad-pill-row" id="setupClassPills">
+                                        <button type="button" class="acad-pill active" data-class="12">Class 12</button>
+                                        <button type="button" class="acad-pill" data-class="10">Class 10</button>
+                                    </div>
+                                </div>
+
+                                <div class="acad-field-col">
+                                    <span class="field-label"><i class="fa-solid fa-landmark"></i> Board</span>
+                                    <div class="acad-pill-row" id="setupBoardPills">
+                                        <button type="button" class="acad-pill active" data-board="cbse">CBSE</button>
+                                        <button type="button" class="acad-pill" data-board="icse">ICSE / ISC</button>
+                                        <button type="button" class="acad-pill" data-board="state">State Board</button>
+                                    </div>
+                                </div>
+
+                                <div class="acad-field-col" id="setupStreamSubgroup">
+                                    <span class="field-label"><i class="fa-solid fa-compass-drafting"></i> Stream</span>
+                                    <div class="acad-pill-row" id="setupStreamPills">
+                                        <button type="button" class="acad-pill active" data-stream="science">Science</button>
+                                        <button type="button" class="acad-pill" data-stream="commerce">Commerce</button>
+                                        <button type="button" class="acad-pill" data-stream="humanities">Humanities</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 1. Subject Selection (Dynamically populated from selected Class & Stream) -->
+                        <div class="form-group">
+                            <div class="group-label-row">
+                                <label class="group-label">
+                                    <span class="label-title"><i class="fa-solid fa-book-open"></i> Select Subject</span>
+                                    <span class="label-hint" id="setupSubjectHint">Showing subjects for Class 12 Science</span>
+                                </label>
+                            </div>
+                            
+                            <div class="subject-options-grid" id="setupSubjectGrid" role="radiogroup" aria-label="Select Subject">
+                                <!-- Populated dynamically by JS based on Academic Selection -->
+                            </div>
+                        </div>
+
+                        <!-- 2. Chapter Selection -->
+                        <div class="form-group">
+                            <div class="group-label-row">
+                                <label class="group-label" for="chapterSelect">
+                                    <span class="label-title"><i class="fa-solid fa-list-check"></i> Chapter & Topic</span>
+                                    <span class="label-hint">Pick specific chapter or full syllabus</span>
+                                </label>
+                                <span class="chapter-count-badge" id="chapterCount">13 Chapters Available</span>
+                            </div>
+
+                            <div class="custom-select-wrapper">
+                                <i class="fa-solid fa-bookmark select-leading-icon"></i>
+                                <select id="chapterSelect" name="chapter" class="custom-select" required>
+                                    <!-- Populated dynamically by JS -->
+                                </select>
+                                <i class="fa-solid fa-chevron-down select-trailing-icon"></i>
+                            </div>
+                        </div>
+
+                        <!-- 3. Difficulty Level -->
+                        <div class="form-group">
+                            <label class="group-label">
+                                <span class="label-title"><i class="fa-solid fa-gauge-high"></i> Difficulty Level</span>
+                                <span class="label-hint">Set the cognitive complexity of problems</span>
+                            </label>
+                            
+                            <div class="difficulty-selector" role="radiogroup" aria-label="Difficulty Level">
+                                <label class="difficulty-card" data-level="easy">
+                                    <input type="radio" name="difficulty" value="easy">
+                                    <div class="difficulty-indicator easy"></div>
+                                    <div class="diff-content">
+                                        <span class="diff-title">Easy</span>
+                                        <span class="diff-desc">Foundational & Direct Definitions</span>
+                                    </div>
+                                </label>
+
+                                <label class="difficulty-card active" data-level="medium">
+                                    <input type="radio" name="difficulty" value="medium" checked>
+                                    <div class="difficulty-indicator medium"></div>
+                                    <div class="diff-content">
+                                        <span class="diff-title">Medium</span>
+                                        <span class="diff-desc">Standard Board & Conceptual Numericals</span>
+                                    </div>
+                                </label>
+
+                                <label class="difficulty-card" data-level="hard">
+                                    <input type="radio" name="difficulty" value="hard">
+                                    <div class="difficulty-indicator hard"></div>
+                                    <div class="diff-content">
+                                        <span class="diff-title">Hard</span>
+                                        <span class="diff-desc">HOTS, Multi-concept & Rigorous</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- 4. Number of Questions -->
+                        <div class="form-group">
+                            <div class="group-label-row">
+                                <label class="group-label">
+                                    <span class="label-title"><i class="fa-solid fa-hashtag"></i> Number of Questions</span>
+                                    <span class="label-hint">Select the length of your session</span>
+                                </label>
+                                <span class="timer-estimate" id="estimatedTimeBadge">
+                                    <i class="fa-regular fa-clock"></i> Est. ~15 Mins
+                                </span>
+                            </div>
+
+                            <div class="question-count-group" role="radiogroup" aria-label="Number of Questions">
+                                <label class="count-pill">
+                                    <input type="radio" name="questionCount" value="5">
+                                    <span class="pill-btn">
+                                        <span class="pill-number">5</span>
+                                        <span class="pill-label">Quick Blitz</span>
+                                    </span>
+                                </label>
+
+                                <label class="count-pill active">
+                                    <input type="radio" name="questionCount" value="10" checked>
+                                    <span class="pill-btn">
+                                        <span class="pill-number">10</span>
+                                        <span class="pill-label">Standard</span>
+                                    </span>
+                                </label>
+
+                                <label class="count-pill">
+                                    <input type="radio" name="questionCount" value="20">
+                                    <span class="pill-btn">
+                                        <span class="pill-number">20</span>
+                                        <span class="pill-label">Full Mock</span>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- 5. Real Exam Mode vs Practice Mode -->
+                        <div class="form-group">
+                            <div class="exam-mode-toggle-card">
+                                <div class="toggle-info">
+                                    <span class="toggle-title"><i class="fa-solid fa-stopwatch"></i> Real Exam Mode</span>
+                                    <span class="toggle-desc">Timed countdown, question palette, answers verified upon submission only</span>
+                                </div>
+                                <label class="switch" for="examModeToggle">
+                                    <input type="checkbox" id="examModeToggle" checked>
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- 6. Adaptive Difficulty Engine -->
+                        <div class="form-group">
+                            <div class="exam-mode-toggle-card adaptive-card">
+                                <div class="toggle-info">
+                                    <span class="toggle-title"><i class="fa-solid fa-gauge-high"></i> Adaptive Difficulty Engine</span>
+                                    <span class="toggle-desc" id="adaptiveToggleDesc">AI coach automatically tunes challenge level in real time based on your rolling accuracy.</span>
+                                </div>
+                                <label class="switch" for="adaptiveModeToggle">
+                                    <input type="checkbox" id="adaptiveModeToggle" checked>
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Submit Action Buttons -->
+                        <div class="setup-form-actions-stack">
+                            <button type="button" id="btnLaunchWeakAreasQuizSetup" class="btn-weak-areas-setup">
+                                <i class="fa-solid fa-bullseye"></i> Generate Quiz From My Weak Areas
+                            </button>
+                            <button type="submit" id="generateQuizBtn" class="btn-generate">
+                                <span class="btn-glow"></span>
+                                <span class="btn-content">
+                                    <span class="btn-icon"><i class="fa-solid fa-bolt-lightning"></i></span>
+                                    <span class="btn-text">Generate a Quiz with Gemini</span>
+                                </span>
+                                <span class="btn-loader" aria-hidden="true">
+                                    <i class="fa-solid fa-circle-notch fa-spin"></i> Contacting Gemini AI...
+                                </span>
+                            </button>
+                        </div>
+                    </form>
+                </section>
+
+                <!-- Right Panel: Live Blueprint -->
+                <aside class="preview-panel glass-panel">
+                    <div class="preview-card-header">
+                        <div class="status-dot"></div>
+                        <span class="preview-title">AI Synthesis Blueprint</span>
+                    </div>
+
+                    <div class="preview-hero">
+                        <div class="preview-subject-avatar" id="previewSubjectIcon">
+                            <i class="fa-solid fa-atom"></i>
+                        </div>
+                        <div class="preview-hero-details">
+                            <span class="preview-tag" id="previewSubjectTag">Physics</span>
+                            <h3 class="preview-subject-name" id="previewSubjectTitle">Physics Board Examination</h3>
+                        </div>
+                    </div>
+
+                    <div class="preview-specs-list">
+                        <div class="spec-item">
+                            <div class="spec-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                            <div class="spec-meta">
+                                <span class="spec-label">Target Curriculum</span>
+                                <span class="spec-value" id="previewAcademicContext">Class 12 • CBSE • Science</span>
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-icon"><i class="fa-solid fa-bookmark"></i></div>
+                            <div class="spec-meta">
+                                <span class="spec-label">Target Chapter</span>
+                                <span class="spec-value" id="previewChapter">All Chapters (Full Syllabus Mock)</span>
+                            </div>
+                        </div>
+
+                        <div class="spec-item">
+                            <div class="spec-icon"><i class="fa-solid fa-gauge"></i></div>
+                            <div class="spec-meta">
+                                <span class="spec-label">Difficulty Profile</span>
+                                <span class="spec-value" id="previewDifficulty">
+                                    <span class="badge diff-badge medium">Medium</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="spec-item">
+                            <div class="spec-icon"><i class="fa-solid fa-list-ol"></i></div>
+                            <div class="spec-meta">
+                                <span class="spec-label">Question Volume</span>
+                                <span class="spec-value" id="previewQuestions">10 Questions</span>
+                            </div>
+                        </div>
+
+                        <div class="spec-item">
+                            <div class="spec-icon"><i class="fa-regular fa-clock"></i></div>
+                            <div class="spec-meta">
+                                <span class="spec-label">Estimated Time</span>
+                                <span class="spec-value" id="previewDuration">~15 Minutes</span>
+                            </div>
+                        </div>
+
+                        <div class="spec-item">
+                            <div class="spec-icon"><i class="fa-solid fa-stopwatch"></i></div>
+                            <div class="spec-meta">
+                                <span class="spec-label">Mode Type</span>
+                                <span class="spec-value" id="previewExamModeBadge">Real Exam Mode (Strict Countdown)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ai-features-box">
+                        <div class="ai-box-title">
+                            <i class="fa-solid fa-microchip"></i> Board Question Engine
+                        </div>
+                        <ul class="ai-feature-list">
+                            <li><i class="fa-solid fa-check"></i> Strict Class 12 Syllabus Alignment</li>
+                            <li><i class="fa-solid fa-check"></i> Balanced Conceptual, Numerical & HOTS</li>
+                            <li><i class="fa-solid fa-check"></i> Validated 4-Option Structure & Reasoning</li>
+                        </ul>
+                    </div>
+
+                    <div class="engine-status-box" id="engineStatusBox">
+                        <div class="engine-status-header">
+                            <i class="fa-solid fa-terminal"></i> Ready to dispatch
+                        </div>
+                        <div class="engine-status-body" id="engineStatusMsg">
+                            Configure options & press "Generate a Quiz" to query Gemini.
+                        </div>
+                    </div>
+                </aside>
+            </main>
+        </section>
+
+                <!-- ==========================================
+             VIEW: AI DOUBT SOLVER (INSTANT BOARD COACH)
+             ========================================== -->
+        <section id="doubtSolverView" class="view-section">
+            <div class="doubt-solver-container glass-panel">
+                <header class="doubt-header">
+                    <div class="brand-badge purple">
+                        <i class="fa-solid fa-brain"></i>
+                        <span>AI Board Doubt Resolution Coach</span>
+                    </div>
+                    <h2 class="view-main-title">Instant Step-by-Step <span class="gradient-text">AI Doubt Solver</span></h2>
+                    <p class="view-subtitle">Stuck on a tricky board question, complex derivation, or multi-step numerical? Type, paste, or upload an image for a verified step-by-step NCERT solution.</p>
+                </header>
+
+                <div class="doubt-workspace-grid">
+                    <!-- Left: Input & Upload -->
+                    <div class="doubt-input-card glass-panel">
+                        <!-- Subject Pill Selector -->
+                        <div class="doubt-subject-pills">
+                            <span class="doubt-pills-label">Subject:</span>
+                            <button type="button" class="doubt-sub-pill active" data-sub="physics"><i class="fa-solid fa-atom"></i> Physics</button>
+                            <button type="button" class="doubt-sub-pill" data-sub="chemistry"><i class="fa-solid fa-flask-vial"></i> Chemistry</button>
+                            <button type="button" class="doubt-sub-pill" data-sub="mathematics"><i class="fa-solid fa-square-root-variable"></i> Mathematics</button>
+                        </div>
+
+                        <!-- Question Input -->
+                        <div class="doubt-textarea-wrapper">
+                            <label for="doubtQuestionInput" class="doubt-input-label">Type or Paste Your Question:</label>
+                            <textarea id="doubtQuestionInput" rows="5" class="doubt-textarea" placeholder="E.g., A parallel plate capacitor of capacitance 20 μF is charged to 100V. A dielectric slab of dielectric constant K=4 is inserted between the plates with battery disconnected. Find the new potential difference and stored energy..."></textarea>
+                        </div>
+
+                        <!-- Image Upload Dropzone -->
+                        <div class="doubt-upload-section">
+                            <label class="doubt-input-label">Or Upload Question Image / Diagram:</label>
+                            <div class="doubt-dropzone" id="doubtDropZone">
+                                <input type="file" id="doubtImageInput" accept="image/png, image/jpeg, image/webp" class="doubt-file-input">
+                                <div class="dropzone-content">
+                                    <i class="fa-solid fa-cloud-arrow-up dropzone-icon"></i>
+                                    <span class="dropzone-text">Drag & drop question photo, or <span class="dropzone-link">browse</span></span>
+                                    <span class="dropzone-hint">PNG, JPG, or WEBP (Max 5MB)</span>
+                                </div>
+                            </div>
+                            <div class="doubt-image-preview-container" id="doubtImagePreviewContainer" style="display:none;">
+                                <img id="doubtImagePreview" src="" alt="Uploaded question preview">
+                                <button type="button" class="btn-remove-image" id="btnRemoveDoubtImage" title="Remove image">
+                                    <i class="fa-solid fa-xmark"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Quick Sample Prompts -->
+                        <div class="doubt-samples-wrapper">
+                            <span class="samples-title"><i class="fa-solid fa-lightbulb"></i> Try Sample Board Questions:</span>
+                            <div class="sample-pills-row">
+                                <button type="button" class="sample-prompt-pill" data-sample="physics">
+                                    <i class="fa-solid fa-atom"></i> Physics: Dielectric Capacitor Numerical
+                                </button>
+                                <button type="button" class="sample-prompt-pill" data-sample="chemistry">
+                                    <i class="fa-solid fa-flask-vial"></i> Chem: Aldol vs Cannizzaro Reaction
+                                </button>
+                                <button type="button" class="sample-prompt-pill" data-sample="mathematics">
+                                    <i class="fa-solid fa-square-root-variable"></i> Math: Definite Integral of sec³x
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="button" class="btn-solve-doubt" id="btnSolveDoubt">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i> <span>Solve with AI Board Coach</span>
+                        </button>
+                    </div>
+
+                    <!-- Right: Solution Display -->
+                    <div class="doubt-solution-card glass-panel" id="doubtSolutionCard">
+                        <!-- Idle State Placeholder -->
+                        <div class="doubt-empty-state" id="doubtEmptyState">
+                            <div class="empty-icon-circle"><i class="fa-solid fa-brain"></i></div>
+                            <h3>Your AI Solution Workspace</h3>
+                            <p>Enter a question or upload a diagram on the left. NeuroPrep AI will detect the core concept, formulate equations, and generate a step-by-step NCERT-aligned derivation.</p>
+                        </div>
+
+                        <!-- Loading State -->
+                        <div class="doubt-loading-state" id="doubtLoadingState" style="display:none;">
+                            <div class="ai-pulse-spinner"></div>
+                            <h4>Analyzing Board Question...</h4>
+                            <p>Identifying theorems, checking boundary values, and structuring derivation steps...</p>
+                        </div>
+
+                        <!-- Actual Formatted Solution Output -->
+                        <div class="doubt-solution-content" id="doubtSolutionContent" style="display:none;">
+                            <!-- Top Bar -->
+                            <div class="sol-top-bar">
+                                <div class="sol-badges">
+                                    <span class="badge diff-badge medium" id="solSubjectBadge">Physics</span>
+                                    <span class="q-type-badge" id="solTypeBadge">Numerical</span>
+                                </div>
+                                <div class="sol-actions">
+                                    <button type="button" class="btn-action-outline btn-sm" id="btnBookmarkDoubt" title="Save to Bookmarks">
+                                        <i class="fa-regular fa-bookmark"></i> Bookmark
+                                    </button>
+                                    <button type="button" class="btn-action-outline btn-sm" id="btnCopyDoubtSolution" title="Copy Solution">
+                                        <i class="fa-regular fa-copy"></i> Copy
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- 1. Detected Question -->
+                            <div class="sol-section">
+                                <h4 class="sol-heading"><i class="fa-solid fa-file-lines"></i> Detected Board Question</h4>
+                                <p class="sol-text" id="doubtDetectedQuestion"></p>
+                            </div>
+
+                            <!-- 2. Core Concept Involved -->
+                            <div class="sol-section">
+                                <h4 class="sol-heading"><i class="fa-solid fa-atom"></i> Core Concept & NCERT Principle</h4>
+                                <p class="sol-text" id="doubtConcept"></p>
+                            </div>
+
+                            <!-- 3. Formula Required -->
+                            <div class="sol-section">
+                                <h4 class="sol-heading"><i class="fa-solid fa-square-root-variable"></i> Key Formula / Equation Required</h4>
+                                <div class="sol-formula-box" id="doubtFormula"></div>
+                            </div>
+
+                            <!-- 4. Step-by-Step Derivation & Calculation -->
+                            <div class="sol-section">
+                                <h4 class="sol-heading"><i class="fa-solid fa-list-ol"></i> Step-by-Step Board Solution</h4>
+                                <div class="sol-steps-container" id="doubtStepByStep"></div>
+                            </div>
+
+                            <!-- 5. Final Answer -->
+                            <div class="sol-final-box">
+                                <span class="final-label">Final Answer:</span>
+                                <span class="final-value" id="doubtFinalAnswer"></span>
+                            </div>
+
+                            <!-- 6. Simple Explanation -->
+                            <div class="sol-section">
+                                <h4 class="sol-heading"><i class="fa-solid fa-chalkboard-user"></i> Simple Explanation (Board Marking Rubric)</h4>
+                                <p class="sol-text" id="doubtExplanation"></p>
+                            </div>
+
+                            <!-- 7. Common Mistake / Exam Trap -->
+                            <div class="sol-alert-box danger">
+                                <h4><i class="fa-solid fa-triangle-exclamation"></i> Common Mistake / Exam Trap to Avoid:</h4>
+                                <p id="doubtCommonMistake"></p>
+                            </div>
+
+                            <!-- 8. Similar Practice Question -->
+                            <div class="sol-similar-box">
+                                <h4><i class="fa-solid fa-bullseye"></i> Similar Practice Question for You:</h4>
+                                <p id="doubtSimilarQuestion"></p>
+                                <button type="button" class="btn-action-outline btn-sm" id="btnPracticeSimilarQuestion">
+                                    <i class="fa-solid fa-play"></i> Solve This Question Now
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<!-- ==========================================
+             VIEW 3: FULL BOARD MOCK TEST LAUNCHER
+             ========================================== -->
+        <section id="mockTestView" class="view-section">
+            <div class="mock-test-container glass-panel">
+                <div class="mock-test-header">
+                    <div class="brand-badge">
+                        <i class="fa-solid fa-award"></i>
+                        <span>Simulated Board Examination</span>
+                    </div>
+                    <h2 class="view-main-title">Full Board Mock Test Suite</h2>
+                    <p class="view-subtitle">Simulate real CBSE board examination conditions with mixed difficulty, full syllabus coverage, and a strict countdown timer.</p>
+                </div>
+
+                <div class="mock-presets-grid">
+                    <!-- Preset 1: PCB/PCM Grand Mock -->
+                    <div class="mock-preset-card featured">
+                        <div class="preset-badge">Most Popular</div>
+                        <div class="preset-icon"><i class="fa-solid fa-layer-group"></i></div>
+                        <h3 class="preset-title">Grand All-Subject Board Mock</h3>
+                        <p class="preset-desc">15 Questions balanced across Physics (5), Chemistry (5), and Mathematics (5). Tests comprehensive board readiness.</p>
+                        <div class="preset-meta">
+                            <span><i class="fa-regular fa-clock"></i> 25 Minutes</span>
+                            <span><i class="fa-solid fa-sliders"></i> Mixed Difficulty</span>
+                        </div>
+                        <button type="button" class="btn-dash-primary" id="btnLaunchGrandMock">
+                            <i class="fa-solid fa-play"></i> Start Grand Mock
+                        </button>
+                    </div>
+
+                    <!-- Preset 2: Physics Full Mock -->
+                    <div class="mock-preset-card">
+                        <div class="preset-icon physics"><i class="fa-solid fa-atom"></i></div>
+                        <h3 class="preset-title">Physics Full Syllabus Mock</h3>
+                        <p class="preset-desc">20 Questions spanning Electrostatics, Optics, Magnetism & Modern Physics. Heavy focus on board numericals.</p>
+                        <div class="preset-meta">
+                            <span><i class="fa-regular fa-clock"></i> 30 Minutes</span>
+                            <span><i class="fa-solid fa-sliders"></i> Standard + HOTS</span>
+                        </div>
+                        <button type="button" class="btn-action-outline" id="btnLaunchPhysicsMock">
+                            <i class="fa-solid fa-play"></i> Start Physics Mock
+                        </button>
+                    </div>
+
+                    <!-- Preset 3: Chemistry Full Mock -->
+                    <div class="mock-preset-card">
+                        <div class="preset-icon chemistry"><i class="fa-solid fa-flask-vial"></i></div>
+                        <h3 class="preset-title">Chemistry Full Syllabus Mock</h3>
+                        <p class="preset-desc">20 Questions covering Physical Chemistry calculations, Organic reaction conversions, and Coordination compounds.</p>
+                        <div class="preset-meta">
+                            <span><i class="fa-regular fa-clock"></i> 30 Minutes</span>
+                            <span><i class="fa-solid fa-sliders"></i> NCERT Aligned</span>
+                        </div>
+                        <button type="button" class="btn-action-outline" id="btnLaunchChemMock">
+                            <i class="fa-solid fa-play"></i> Start Chemistry Mock
+                        </button>
+                    </div>
+
+                    <!-- Preset 4: Mathematics Full Mock -->
+                    <div class="mock-preset-card">
+                        <div class="preset-icon mathematics"><i class="fa-solid fa-square-root-variable"></i></div>
+                        <h3 class="preset-title">Mathematics Full Syllabus Mock</h3>
+                        <p class="preset-desc">20 Questions with high weightage on Calculus, Differential Equations, Vectors, and 3D Geometry.</p>
+                        <div class="preset-meta">
+                            <span><i class="fa-regular fa-clock"></i> 35 Minutes</span>
+                            <span><i class="fa-solid fa-sliders"></i> Rigorous Multi-Step</span>
+                        </div>
+                        <button type="button" class="btn-action-outline" id="btnLaunchMathMock">
+                            <i class="fa-solid fa-play"></i> Start Math Mock
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             VIEW 4: PRACTICE MY MISTAKES (MISTAKES VAULT)
+             ========================================== -->
+        <section id="mistakesView" class="view-section">
+            <div class="mistakes-container glass-panel">
+                <div class="mistakes-header">
+                    <div>
+                        <div class="brand-badge danger">
+                            <i class="fa-solid fa-shield-virus"></i>
+                            <span>Concept Recovery Vault</span>
+                        </div>
+                        <h2 class="view-main-title">Practice My Mistakes</h2>
+                        <p class="view-subtitle">Review and eliminate questions you previously answered incorrectly. Master each concept to permanently boost board scores.</p>
+                    </div>
+                    <div class="mistakes-top-actions">
+                        <button type="button" class="btn-dash-mistakes" id="btnLaunchMistakesPractice">
+                            <i class="fa-solid fa-bolt"></i> Practice Active Mistakes (<span id="mistakesPracticeCountText">0</span>)
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Mistakes Stat Bar (Mistake Master System) -->
+                <div class="mistakes-stats-bar">
+                    <div class="mstat-item">
+                        <span class="mstat-number" id="mstatTotalCount">0</span>
+                        <span class="mstat-label">Total Mistakes</span>
+                    </div>
+                    <div class="mstat-divider"></div>
+                    <div class="mstat-item active-stat">
+                        <span class="mstat-number warning-text" id="mstatInProgressCount">0</span>
+                        <span class="mstat-label">In Progress</span>
+                    </div>
+                    <div class="mstat-divider"></div>
+                    <div class="mstat-item">
+                        <span class="mstat-number success-text" id="mstatMasteredCount">0</span>
+                        <span class="mstat-label">Mastered</span>
+                    </div>
+                    <div class="mstat-divider"></div>
+                    <div class="mstat-item">
+                        <span class="mstat-number danger-text" id="mstatRemainingCount">0</span>
+                        <span class="mstat-label">Unresolved</span>
+                    </div>
+                </div>
+
+                <!-- Subject & Mastery Filters -->
+                <div class="history-filters">
+                    <button type="button" class="mistakes-filter-pill active" data-filter="all">All Mistakes</button>
+                    <button type="button" class="mistakes-filter-pill" data-filter="in_progress">In Progress</button>
+                    <button type="button" class="mistakes-filter-pill" data-filter="mastered">Mastered</button>
+                    <button type="button" class="mistakes-filter-pill" data-filter="physics">Physics</button>
+                    <button type="button" class="mistakes-filter-pill" data-filter="chemistry">Chemistry</button>
+                    <button type="button" class="mistakes-filter-pill" data-filter="mathematics">Mathematics</button>
+                </div>
+
+                <!-- Mistakes List Container -->
+                <div class="mistakes-list" id="mistakesListContainer">
+                    <!-- Populated dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             VIEW 5: 7-DAY AI STUDY PLAN
+             ========================================== -->
+        <section id="studyPlanView" class="view-section">
+            <div class="study-plan-container glass-panel">
+                <div class="study-plan-header">
+                    <div>
+                        <div class="brand-badge">
+                            <i class="fa-solid fa-brain"></i>
+                            <span>Adaptive AI Revision Schedule</span>
+                        </div>
+                        <h2 class="view-main-title">7-Day Board Exam Study Plan</h2>
+                        <p class="view-subtitle">A personalized daily revision pathway automatically recalibrated based on your quiz history, weak subjects, and unresolved mistakes.</p>
+                    </div>
+                    <button type="button" class="btn-action-outline btn-sm" id="btnRegenerateStudyPlan" title="Recalibrate with latest analytics">
+                        <i class="fa-solid fa-arrows-rotate"></i> Regenerate Plan
+                    </button>
+                </div>
+
+                <!-- 7-Day Interactive Road Map Grid -->
+                <div class="study-plan-grid" id="studyPlanGrid">
+                    <!-- Populated dynamically with Day 1 - Day 7 Cards -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             VIEW 6: ACTIVE QUIZ TAKING INTERFACE
+             ========================================== -->
+        <section id="quizView" class="view-section">
+            <div class="quiz-container">
+                <!-- 1-Minute Warning Banner -->
+                <div class="timer-warning-banner" id="timerWarningBanner">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    <span><strong>1 Minute Remaining!</strong> Wrap up and submit your responses.</span>
+                </div>
+
+                <!-- Top Header Bar -->
+                <header class="quiz-top-bar glass-panel">
+                    <div class="quiz-nav-left">
+                        <button type="button" id="exitQuizBtn" class="btn-secondary-icon" title="Exit Quiz (Esc)">
+                            <i class="fa-solid fa-arrow-left"></i> <span>Exit</span>
+                        </button>
+                        <div class="quiz-breadcrumbs">
+                            <span class="breadcrumb-subject" id="quizActiveSubject">Physics</span>
+                            <i class="fa-solid fa-chevron-right breadcrumb-separator"></i>
+                            <span class="breadcrumb-chapter" id="quizActiveChapter">Electrostatics</span>
+                        </div>
+                    </div>
+                    
+                    <div class="quiz-meta-badges">
+                        <!-- Exam Countdown Timer -->
+                        <div class="exam-timer-pill" id="examTimerPill">
+                            <i class="fa-solid fa-stopwatch"></i>
+                            <span id="examTimerDisplay">15:00</span>
+                        </div>
+
+                        <!-- Mode Badge & Difficulty Badge -->
+                        <span class="badge diff-badge medium" id="quizActiveModeBadge">Exam Mode</span>
+                        <span class="badge diff-badge medium" id="quizActiveDiffBadge">Medium</span>
+
+                        <!-- Bookmark Toggle Button -->
+                        <button type="button" class="btn-bookmark-toggle" id="quizBookmarkBtn" title="Bookmark this question">
+                            <i class="fa-regular fa-bookmark" id="quizBookmarkIcon"></i>
+                        </button>
+
+                        <!-- Question Counter -->
+                        <div class="question-tracker">
+                            <span class="tracker-current" id="currentQuestionNum">1</span>
+                            <span class="tracker-slash">/</span>
+                            <span class="tracker-total" id="totalQuestionsNum">10</span>
+                        </div>
+                    </div>
+                </header>
+
+                <!-- Exam Question Palette (Shown in Exam Mode) -->
+                <div class="exam-palette-wrapper glass-panel" id="examPaletteWrapper">
+                    <div class="palette-header">
+                        <span class="palette-title"><i class="fa-solid fa-table-cells"></i> Question Navigator</span>
+                        <div class="palette-legend">
+                            <span class="legend-item"><span class="legend-dot answered"></span> Answered</span>
+                            <span class="legend-item"><span class="legend-dot flagged"></span> Flagged</span>
+                            <span class="legend-item"><span class="legend-dot current"></span> Current</span>
+                            <span class="legend-item"><span class="legend-dot unvisited"></span> Unvisited</span>
+                        </div>
+                    </div>
+                    <div class="palette-grid" id="examPaletteGrid">
+                        <!-- Populated dynamically with question number buttons -->
+                    </div>
+                </div>
+
+                <!-- Linear Progress Bar -->
+                <div class="quiz-progress-wrapper">
+                    <div class="quiz-progress-bar">
+                        <div class="quiz-progress-fill" id="quizProgressFill" style="width: 10%;"></div>
+                    </div>
+                </div>
+
+                <!-- Main Question Card -->
+                <main class="question-card glass-panel" id="questionCard">
+                    <div class="question-header">
+                        <div class="question-header-left">
+                            <div class="q-tag">Question <span id="qCardNum">01</span></div>
+                            <span class="q-type-badge" id="questionTypeBadge">Conceptual</span>
+                        </div>
+                        <div class="question-header-right">
+                            <button type="button" class="btn-flag-review" id="btnFlagReview" title="Mark for review later">
+                                <i class="fa-regular fa-flag" id="flagReviewIcon"></i> <span>Flag for Review</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="question-body">
+                        <h2 class="question-text" id="questionText">Loading question prompt...</h2>
+                    </div>
+
+                    <!-- Multiple Choice Options -->
+                    <div class="options-container" id="optionsContainer">
+                        <!-- Options generated dynamically -->
+                    </div>
+
+                    <!-- Instant Explanation Box (Active only in Practice Mode) -->
+                    <div class="explanation-box" id="explanationBox">
+                        <div class="explanation-header">
+                            <span class="exp-title"><i class="fa-solid fa-wand-magic-sparkles"></i> AI Detailed Explanation</span>
+                            <span class="exp-verdict" id="explanationVerdict"></span>
+                        </div>
+                        <div class="explanation-content" id="explanationContent">
+                            <!-- Explanation rendered here -->
+                        </div>
+                    </div>
+
+                    <!-- Keyboard Shortcuts Hint Bar -->
+                    <div class="keyboard-hints-bar">
+                        <span><kbd>1</kbd>-<kbd>4</kbd> Select Option</span>
+                        <span><kbd>Enter</kbd> Next / Check</span>
+                        <span><kbd>&larr;</kbd> <kbd>&rarr;</kbd> Navigate</span>
+                        <span><kbd>Esc</kbd> Exit</span>
+                    </div>
+
+                    <!-- Navigation Footer -->
+                    <footer class="question-footer">
+                        <button type="button" id="prevQuestionBtn" class="btn-nav" disabled>
+                            <i class="fa-solid fa-chevron-left"></i> Previous
+                        </button>
+
+                        <div class="footer-center-actions">
+                            <!-- In Practice Mode: Check Answer -->
+                            <button type="button" id="checkAnswerBtn" class="btn-check" disabled>
+                                <i class="fa-solid fa-lightbulb"></i> Check Answer
+                            </button>
+
+                            <!-- In Exam Mode: Submit Exam Button -->
+                            <button type="button" id="btnSubmitExamEarly" class="btn-submit-exam" style="display:none;">
+                                <i class="fa-solid fa-check-to-slot"></i> Submit Exam
+                            </button>
+                        </div>
+
+                        <button type="button" id="nextQuestionBtn" class="btn-nav btn-primary-nav">
+                            Next <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                    </footer>
+                </main>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             VIEW 7: RESULTS & PERFORMANCE REVIEW
+             ========================================== -->
+        <section id="resultsView" class="view-section">
+            <div class="results-container glass-panel">
+                <div class="results-header">
+                    <div class="results-badge" id="resultsBadge"><i class="fa-solid fa-trophy"></i> Quiz Completed</div>
+                    <h2 class="results-title">Board Examination Summary</h2>
+                    <p class="results-subtitle" id="resultsSubtitle">Physics • 10 Questions • Medium Difficulty</p>
+                </div>
+
+                <!-- Score Dashboard -->
+                <div class="score-dashboard">
+                    <div class="score-card-main">
+                        <div class="score-circle-wrapper">
+                            <svg class="score-svg" viewBox="0 0 120 120">
+                                <circle class="score-bg-circle" cx="60" cy="60" r="50"></circle>
+                                <circle class="score-progress-circle" id="scoreCircle" cx="60" cy="60" r="50"></circle>
+                            </svg>
+                            <div class="score-center-text">
+                                <span class="score-percent" id="scorePercentage">0%</span>
+                                <span class="score-label">Score</span>
+                            </div>
+                        </div>
+
+                        <div class="score-text-summary">
+                            <h3 class="score-grade" id="scoreGrade">Outstanding!</h3>
+                            <p class="score-fraction" id="scoreFraction">You answered <strong>8</strong> out of <strong>10</strong> questions correctly.</p>
+                            <div class="score-time-badge" id="scoreTimeTaken"><i class="fa-regular fa-clock"></i> Time Taken: 00:00</div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Stats 3-Grid -->
+                    <div class="results-stats-grid">
+                        <div class="result-stat-item correct">
+                            <div class="stat-icon"><i class="fa-solid fa-circle-check"></i></div>
+                            <div class="stat-info">
+                                <span class="stat-num" id="statCorrect">8</span>
+                                <span class="stat-name">Correct</span>
+                            </div>
+                        </div>
+
+                        <div class="result-stat-item incorrect">
+                            <div class="stat-icon"><i class="fa-solid fa-circle-xmark"></i></div>
+                            <div class="stat-info">
+                                <span class="stat-num" id="statIncorrect">2</span>
+                                <span class="stat-name">Incorrect</span>
+                            </div>
+                        </div>
+
+                        <div class="result-stat-item unattempted">
+                            <div class="stat-icon"><i class="fa-solid fa-circle-minus"></i></div>
+                            <div class="stat-info">
+                                <span class="stat-num" id="statUnattempted">0</span>
+                                <span class="stat-name">Skipped</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Diagnostics: Strong Areas, Weak Areas, & Recommended Action -->
+                <div class="results-diagnostic-card">
+                    <h3 class="diagnostic-title"><i class="fa-solid fa-microscope"></i> Performance Diagnostics</h3>
+                    <div class="diagnostic-grid">
+                        <div class="diag-column strong">
+                            <h4 class="diag-header"><i class="fa-solid fa-circle-check"></i> Mastered Concepts</h4>
+                            <ul class="diag-list" id="resultsStrongList">
+                                <li>All correct areas logged</li>
+                            </ul>
+                        </div>
+                        <div class="diag-column weak">
+                            <h4 class="diag-header"><i class="fa-solid fa-circle-exclamation"></i> Revision Needed</h4>
+                            <ul class="diag-list" id="resultsWeakList">
+                                <li>No major weaknesses noted</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Question Type Performance for this session -->
+                    <div class="results-qtype-summary" id="resultsQTypeSummaryBox">
+                        <h4 class="sol-heading"><i class="fa-solid fa-shapes"></i> Question Type Mastery This Session</h4>
+                        <div class="session-qtype-pills" id="resultsQTypePillsRow">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+
+                    <div class="recommended-action-box" id="resultsRecommendedAction">
+                        <div class="rec-text-side">
+                            <strong>Recommended Next Step:</strong> Review incorrect questions to consolidate formula grasp.
+                        </div>
+                        <div class="rec-buttons-group">
+                            <button type="button" class="btn-action-outline btn-sm" id="btnLaunchRecommendedQuiz">
+                                <i class="fa-solid fa-bolt"></i> Generate Recommended Quiz
+                            </button>
+                            <button type="button" class="btn-action-outline btn-sm" id="btnSolveMissedInDoubtSolver">
+                                <i class="fa-solid fa-brain"></i> Solve Missed Questions in Doubt Solver
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="results-action-buttons">
+                    <button type="button" id="reviewQuestionsBtn" class="btn-action-outline">
+                        <i class="fa-solid fa-list-check"></i> Review All Answers
+                    </button>
+                    <button type="button" id="practiceMistakesFromResultsBtn" class="btn-action-outline">
+                        <i class="fa-solid fa-repeat"></i> Practice Mistakes
+                    </button>
+                    <button type="button" id="btnResultsGenerateWeakQuiz" class="btn-action-outline">
+                        <i class="fa-solid fa-bullseye"></i> Quiz From Weak Areas
+                    </button>
+                    <button type="button" id="restartQuizBtn" class="btn-action-outline">
+                        <i class="fa-solid fa-rotate-right"></i> Retake This Quiz
+                    </button>
+                    <button type="button" id="newQuizBtn" class="btn-action-outline">
+                        <i class="fa-solid fa-plus"></i> New Custom Quiz
+                    </button>
+                    <button type="button" id="resultsGoToAnalyticsBtn" class="btn-action-outline">
+                        <i class="fa-solid fa-chart-line"></i> View Analytics
+                    </button>
+                    <button type="button" id="backToDashBtn" class="btn-generate">
+                        <span class="btn-content">
+                            <i class="fa-solid fa-house"></i> Back to Dashboard
+                        </span>
+                    </button>
+                </div>
+
+                <!-- Detailed Solutions Review Accordion -->
+                <div class="review-section" id="reviewSection">
+                    <h3 class="review-title"><i class="fa-solid fa-book-open-reader"></i> Comprehensive Solutions & Explanations</h3>
+                    <div class="review-list" id="reviewList">
+                        <!-- Populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             VIEW 8: QUIZ HISTORY SECTION
+             ========================================== -->
+        <section id="historyView" class="view-section">
+            <div class="history-container glass-panel">
+                <div class="history-header">
+                    <div>
+                        <h2 class="view-main-title"><i class="fa-solid fa-clock-rotate-left"></i> Quiz Attempt History</h2>
+                        <p class="view-subtitle">Review every past mock and chapter quiz. Inspect questions, student responses, and explanations.</p>
+                    </div>
+                    <div class="history-actions">
+                        <button type="button" class="btn-action-outline btn-sm" id="clearHistoryBtn">
+                            <i class="fa-solid fa-trash-can"></i> Clear History
+                        </button>
+                    </div>
+                </div>
+
+                <!-- History Filters -->
+                <div class="history-filters">
+                    <button type="button" class="history-filter-pill active" data-filter="all">All Quizzes</button>
+                    <button type="button" class="history-filter-pill" data-filter="physics">Physics</button>
+                    <button type="button" class="history-filter-pill" data-filter="chemistry">Chemistry</button>
+                    <button type="button" class="history-filter-pill" data-filter="mathematics">Mathematics</button>
+                </div>
+
+                <!-- History Attempts List -->
+                <div class="history-list" id="historyListContainer">
+                    <!-- Populated dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             VIEW 9: PERFORMANCE ANALYTICS
+             ========================================== -->
+        <section id="analyticsView" class="view-section">
+            <div class="analytics-container glass-panel">
+                <div class="analytics-header">
+                    <h2 class="view-main-title"><i class="fa-solid fa-chart-line"></i> Performance Analytics</h2>
+                    <p class="view-subtitle">Data-driven insights to track preparation maturity and accuracy distribution across difficulty tiers.</p>
+                </div>
+
+                <div class="analytics-grid">
+                    <!-- Subject Accuracies -->
+                    <div class="analytics-card glass-panel">
+                        <h3 class="card-title"><i class="fa-solid fa-book-bookmark"></i> Subject Accuracies</h3>
+                        <div class="analytics-bars-container" id="analyticsSubjectBars">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+
+                    <!-- Difficulty Accuracies -->
+                    <div class="analytics-card glass-panel">
+                        <h3 class="card-title"><i class="fa-solid fa-layer-group"></i> Accuracy by Difficulty</h3>
+                        <div class="difficulty-analytics-list" id="analyticsDifficultyBars">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question Type Analytics (Requirement 10) -->
+                <div class="analytics-card glass-panel full-width">
+                    <div class="card-header-with-badge">
+                        <h3 class="card-title"><i class="fa-solid fa-shapes"></i> Question Type Analytics</h3>
+                        <span class="card-caption">NCERT Board Exam Distribution</span>
+                    </div>
+                    <div class="question-type-analytics-grid">
+                        <div class="qtype-metric-card" id="qtypeCardConceptual">
+                            <div class="qtype-icon-box conceptual"><i class="fa-solid fa-lightbulb"></i></div>
+                            <div class="qtype-info">
+                                <span class="qtype-name">Conceptual</span>
+                                <span class="qtype-score" id="analyticsConceptualText">0% (0/0)</span>
+                            </div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill conceptual" id="analyticsConceptualBar" style="width:0%;"></div>
+                            </div>
+                        </div>
+                        <div class="qtype-metric-card" id="qtypeCardNumerical">
+                            <div class="qtype-icon-box numerical"><i class="fa-solid fa-calculator"></i></div>
+                            <div class="qtype-info">
+                                <span class="qtype-name">Numerical</span>
+                                <span class="qtype-score" id="analyticsNumericalText">0% (0/0)</span>
+                            </div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill numerical" id="analyticsNumericalBar" style="width:0%;"></div>
+                            </div>
+                        </div>
+                        <div class="qtype-metric-card" id="qtypeCardApplication">
+                            <div class="qtype-icon-box application"><i class="fa-solid fa-flask"></i></div>
+                            <div class="qtype-info">
+                                <span class="qtype-name">Application-Based</span>
+                                <span class="qtype-score" id="analyticsApplicationText">0% (0/0)</span>
+                            </div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill application" id="analyticsApplicationBar" style="width:0%;"></div>
+                            </div>
+                        </div>
+                        <div class="qtype-metric-card" id="qtypeCardAssertion">
+                            <div class="qtype-icon-box assertion"><i class="fa-solid fa-scale-balanced"></i></div>
+                            <div class="qtype-info">
+                                <span class="qtype-name">Assertion-Reason</span>
+                                <span class="qtype-score" id="analyticsAssertionText">0% (0/0)</span>
+                            </div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill assertion" id="analyticsAssertionBar" style="width:0%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="qtype-insight-box" id="analyticsQTypeInsight">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        <span>Complete quizzes to receive targeted insights on question types.</span>
+                    </div>
+                </div>
+
+                <!-- Strongest vs Weakest Topics -->
+                <div class="analytics-card glass-panel full-width">
+                    <h3 class="card-title"><i class="fa-solid fa-crosshairs"></i> Chapter Proficiency Matrix</h3>
+                    <div class="proficiency-matrix-grid">
+                        <div class="prof-column strong">
+                            <h4 class="prof-header"><i class="fa-solid fa-star"></i> Strongest Chapters (High Accuracy)</h4>
+                            <ul class="prof-list" id="analyticsStrongChaptersList">
+                                <li>Complete more quizzes to identify strong topics</li>
+                            </ul>
+                        </div>
+                        <div class="prof-column weak">
+                            <h4 class="prof-header"><i class="fa-solid fa-circle-exclamation"></i> Weakest Chapters (Priority Review)</h4>
+                            <ul class="prof-list" id="analyticsWeakChaptersList">
+                                <li>Complete more quizzes to identify weak topics</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Score Trend Chart (CSS Bar Chart) -->
+                <div class="analytics-card glass-panel full-width">
+                    <div class="trend-header">
+                        <h3 class="card-title"><i class="fa-solid fa-chart-simple"></i> Recent Score Trend</h3>
+                        <span class="trend-caption">Last 10 completed attempts</span>
+                    </div>
+                    <div class="score-trend-chart-wrapper" id="analyticsScoreTrendChart">
+                        <!-- Populated by CSS bars -->
+                    </div>
+                </div>
+
+                <!-- Chapter Focus Table -->
+                <div class="analytics-card glass-panel full-width">
+                    <h3 class="card-title"><i class="fa-solid fa-bullseye"></i> Chapter Practice Logs</h3>
+                    <div class="chapter-radar-table-wrapper" id="analyticsChapterFocusContainer">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             VIEW 10: BOOKMARKS SECTION
+             ========================================== -->
+        <section id="bookmarksView" class="view-section">
+            <div class="bookmarks-container glass-panel">
+                <div class="bookmarks-header">
+                    <div>
+                        <h2 class="view-main-title"><i class="fa-solid fa-bookmark"></i> Bookmarked Questions</h2>
+                        <p class="view-subtitle">High-yield problems you flagged for rapid revision. Practice them directly or review AI derivations.</p>
+                    </div>
+                    <div class="bookmarks-actions">
+                        <button type="button" class="btn-dash-primary" id="practiceBookmarksBtn">
+                            <i class="fa-solid fa-play"></i> Practice Bookmarks
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Bookmarks Subject Filters -->
+                <div class="bookmarks-filters">
+                    <button type="button" class="bookmark-filter-pill active" data-filter="all">All Subjects</button>
+                    <button type="button" class="bookmark-filter-pill" data-filter="physics">Physics</button>
+                    <button type="button" class="bookmark-filter-pill" data-filter="chemistry">Chemistry</button>
+                    <button type="button" class="bookmark-filter-pill" data-filter="mathematics">Mathematics</button>
+                </div>
+
+                <!-- Bookmarks List -->
+                <div class="bookmarks-list" id="bookmarksListContainer">
+                    <!-- Populated dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             MAIN APPLICATION FOOTER
+             ========================================== -->
+        <footer class="app-main-footer glass-panel">
+            <div class="footer-inner">
+                <div class="footer-brand-col">
+                    <div class="footer-logo">
+                        <div class="footer-mini-icon">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <span class="footer-brand-text">NeuroPrep <span class="highlight">AI</span></span>
+                    </div>
+                    <p class="footer-tagline">Your Personal AI Board Exam Coach</p>
+                </div>
+
+                <div class="footer-center-col">
+                    <span class="footer-built-by"><i class="fa-solid fa-code"></i> Designed & Built by Sidharth</span>
+                    <span class="footer-disciplines">AI • Web Development • Education</span>
+                </div>
+
+                <div class="footer-right-col">
+                    <a href="https://github.com/Sidhxrth08" target="_blank" rel="noopener noreferrer" class="footer-github-btn" title="View Sidharth's GitHub Profile">
+                        <i class="fa-brands fa-github"></i>
+                        <span>View GitHub</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square external-icon"></i>
+                    </a>
+                    <span class="footer-copyright">© 2026 Sidharth • NeuroPrep AI</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- ==========================================
+         MODAL: SET GEMINI API KEY
+         ========================================== -->
+    <div class="modal-overlay" id="apiKeyModal" aria-hidden="true">
+        <div class="modal-card glass-panel">
+            <div class="modal-icon-badge key-badge">
+                <i class="fa-solid fa-key"></i>
+            </div>
+            <h3 class="modal-title">Gemini AI Key Settings</h3>
+            <p class="modal-desc">Enter your Google Gemini API key to synthesize real-time customized board exam questions.</p>
+            
+            <div class="api-key-input-group">
+                <div class="key-field-wrapper">
+                    <i class="fa-solid fa-lock key-input-icon"></i>
+                    <input type="password" id="geminiApiKeyInput" class="custom-input key-input" placeholder="AIzaSy... or paste key here" autocomplete="off">
+                    <button type="button" id="toggleKeyVisibilityBtn" class="btn-show-key" title="Show / Hide">
+                        <i class="fa-solid fa-eye" id="eyeIcon"></i>
+                    </button>
+                </div>
+                
+                <div class="security-note">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <span><strong>Architecture Security Notice:</strong> In this client-side web application, your key is saved locally in your browser storage. For production deployments with public users, proxy this request through a secure backend or serverless function.</span>
+                </div>
+            </div>
+
+            <div class="modal-actions-dual">
+                <button type="button" class="btn-action-outline" id="removeApiKeyBtn" style="color:var(--accent-rose); border-color: rgba(244,63,94,0.3);">
+                    <i class="fa-solid fa-trash-can"></i> Remove
+                </button>
+                <button type="button" class="btn-action-outline" id="cancelApiKeyBtn">
+                    Cancel
+                </button>
+                <button type="button" class="btn-modal-action" id="saveApiKeyBtn">
+                    Save Key <i class="fa-solid fa-check"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         MODAL: REVIEW PAST QUIZ ATTEMPT
+         ========================================== -->
+    <div class="modal-overlay" id="historyReviewModal" aria-hidden="true">
+        <div class="modal-card glass-panel review-modal-card">
+            <div class="review-modal-header">
+                <div>
+                    <h3 class="modal-title" id="historyReviewTitle">Quiz Attempt Review</h3>
+                    <p class="modal-desc" id="historyReviewSubtitle">Review questions, options, and explanations</p>
+                </div>
+                <button type="button" class="btn-icon-close" id="closeHistoryReviewBtn" title="Close">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            
+            <div class="history-review-content" id="historyReviewContent">
+                <!-- Dynamically populated with question cards -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         MODAL: CONFIRM EXAM SUBMISSION
+         ========================================== -->
+    <div class="modal-overlay" id="examSubmitConfirmModal" aria-hidden="true">
+        <div class="modal-card glass-panel">
+            <div class="modal-icon-badge warning-badge">
+                <i class="fa-solid fa-clipboard-check"></i>
+            </div>
+            <h3 class="modal-title">Submit Board Exam?</h3>
+            <p class="modal-desc" id="examSubmitConfirmDesc">You have answered 8 of 10 questions. Are you sure you want to finish?</p>
+            
+            <div class="modal-actions-dual">
+                <button type="button" class="btn-action-outline" id="btnCancelSubmitExam">
+                    Return to Exam
+                </button>
+                <button type="button" class="btn-modal-action danger-btn" id="btnConfirmSubmitExam">
+                    Submit & Grade <i class="fa-solid fa-check"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <!-- ==========================================
+         ACADEMIC PROFILE CONFIGURATION MODAL
+         ========================================== -->
+    <div class="modal-overlay" id="academicProfileModal" style="display: none;">
+        <div class="modal-content academic-modal-content glass-panel">
+            <div class="modal-header">
+                <div class="modal-title-group">
+                    <span class="brand-badge emerald"><i class="fa-solid fa-school"></i> Academic Profile</span>
+                    <h3 class="modal-title">Select Your Academic Target</h3>
+                    <p class="modal-subtitle">Configure your class, board, and stream to align question generation with your exact syllabus.</p>
+                </div>
+                <button type="button" class="btn-modal-close" id="btnCloseAcademicModal" aria-label="Close modal">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="academic-modal-body">
+                <!-- 1. Select Class -->
+                <div class="academic-config-section">
+                    <label class="academic-config-label"><i class="fa-solid fa-layer-group"></i> Select Your Class:</label>
+                    <div class="academic-pills-grid" id="modalClassPills">
+                        <button type="button" class="academic-pill-card active" data-class="12">
+                            <span class="pill-card-title">Class 12</span>
+                            <span class="pill-card-sub">Senior Secondary (Board Year)</span>
+                        </button>
+                        <button type="button" class="academic-pill-card" data-class="10">
+                            <span class="pill-card-title">Class 10</span>
+                            <span class="pill-card-sub">Secondary Board Exam</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 2. Select Board -->
+                <div class="academic-config-section">
+                    <label class="academic-config-label"><i class="fa-solid fa-landmark"></i> Select Your Board:</label>
+                    <div class="academic-pills-grid three-col" id="modalBoardPills">
+                        <button type="button" class="academic-pill-card active" data-board="cbse">
+                            <span class="pill-card-title">CBSE</span>
+                            <span class="pill-card-sub">Central Board (NCERT)</span>
+                        </button>
+                        <button type="button" class="academic-pill-card" data-board="icse">
+                            <span class="pill-card-title">ICSE / ISC</span>
+                            <span class="pill-card-sub">Council (CISCE)</span>
+                        </button>
+                        <button type="button" class="academic-pill-card" data-board="state">
+                            <span class="pill-card-title">State Board</span>
+                            <span class="pill-card-sub">State Syllabus</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 3. Select Stream (Shown for Class 12, hidden for Class 10) -->
+                <div class="academic-config-section" id="modalStreamSection">
+                    <label class="academic-config-label"><i class="fa-solid fa-compass-drafting"></i> Select Your Stream:</label>
+                    <div class="academic-pills-grid three-col" id="modalStreamPills">
+                        <button type="button" class="academic-pill-card active" data-stream="science">
+                            <span class="pill-card-title"><i class="fa-solid fa-flask-vial"></i> Science</span>
+                            <span class="pill-card-sub">Physics, Chem, Math, Bio, CS</span>
+                        </button>
+                        <button type="button" class="academic-pill-card" data-stream="commerce">
+                            <span class="pill-card-title"><i class="fa-solid fa-calculator"></i> Commerce</span>
+                            <span class="pill-card-sub">Accounts, BST, Econ, Math</span>
+                        </button>
+                        <button type="button" class="academic-pill-card" data-stream="humanities">
+                            <span class="pill-card-title"><i class="fa-solid fa-landmark"></i> Humanities</span>
+                            <span class="pill-card-sub">History, Pol Sci, Geo, Econ</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn-action-outline" id="btnCancelAcademicModal">Cancel</button>
+                <button type="button" class="btn-dash-primary" id="btnSaveAcademicProfile">
+                    <i class="fa-solid fa-check"></i> Save & Apply Curriculum
+                </button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
