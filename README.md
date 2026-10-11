@@ -22,6 +22,19 @@ exam-readiness insights in one modern web application.
 
 ---
 
+## 💻 Recommended Platform
+
+> 🖥️ **For the best experience, NeuroPrep AI is recommended on a PC or laptop.**
+
+The platform is primarily designed and optimized for larger screens.
+Some features and UI elements may not provide the same experience on
+mobile devices.
+
+**Recommended:** 💻 PC / Laptop  
+**Browser:** 🌐 Google Chrome, Microsoft Edge, or another modern browser
+
+---
+
 ## 👨‍💻 Created & Designed By
 
 ### **Sidharth**
